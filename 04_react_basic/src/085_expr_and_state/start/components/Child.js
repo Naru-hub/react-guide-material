@@ -6,9 +6,17 @@
 import "./Child.css";
 
 const Child = () => {
+  const a = true ? 'hello' : 'bye';
+
+  console.log(1 === 1);
+  for(let i = 0; i < 5; i++) {
+
+  }
+  
   return (
     <div className="component">
       <h3>式と文</h3>
+      {false ? 'hello' : 'bye'}
     </div>
   );
 };
