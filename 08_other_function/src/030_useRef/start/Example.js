@@ -28,6 +28,7 @@ const Case2 = () => {
 
   return (
     <div>
+      <h3>ユースケース2</h3>
       <video style={{ maxWidth: "100%" }} ref={videoRef}>
         <source src="./sample.mp4"></source>
       </video>
@@ -47,11 +48,42 @@ const Case2 = () => {
   );
 };
 
+const Case3 = () => {
+  const createTimeStamp = () => new Date().getTime();
+  const [timeStamp, setValue] = useState(createTimeStamp());
+  const ref = useRef(createTimeStamp());
+
+  const updateState = () => {
+    setValue(createTimeStamp());
+  };
+
+  const updateRef = () => {
+    ref.current = createTimeStamp();
+
+    console.log("ref.current ->", ref.current);
+  };
+
+  return (
+    <div>
+      <h3>ユースケース3</h3>
+      <p>
+        state: {timeStamp}
+        <button onClick={updateState}>更新</button>
+      </p>
+      <p>
+        Ref: {ref.current}
+        <button onClick={updateRef}>更新</button>
+      </p>
+    </div>
+  );
+};
+
 const Example = () => {
   return (
     <>
       <Case1 />
       <Case2 />
+      <Case3 />
     </>
   );
 };
